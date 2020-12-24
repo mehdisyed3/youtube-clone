@@ -5,7 +5,7 @@ import RecommendedVideos from './RecommendedVideos';
 import Sidebar from './Sidebar';
 
 
-// 1.15
+// 2.22
 function App() {
   return (
     <div className="app">

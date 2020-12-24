@@ -8,7 +8,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications'
 import Avatar from '@material-ui/core/Avatar'
 
 function Header() {
-  const [searcj,setSearch] = useState('')
+  const [searcj, setSearch] = useState('')
   return (
     <div className='header'>
 
@@ -18,7 +18,7 @@ function Header() {
       </div>
 
       <div className='header__input'>
-        <input type='text' placeholder='Search'/>
+        <input type='text' placeholder='Search' />
         <SearchIcon className='header__inputButton' />
       </div>
 
