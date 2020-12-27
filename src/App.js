@@ -4,6 +4,7 @@ import Header from './Header';
 import RecommendedVideos from './RecommendedVideos';
 import Sidebar from './Sidebar';
 import {Switch, Route} from 'react-router-dom'
+import SearchPage from './SearchPage';
 
 
 // 2.22
@@ -19,7 +20,11 @@ function App() {
           <Route exact path='/'>
             <RecommendedVideos />
             </Route>
-          <Route path='/search' ><h1>Trending</h1></Route>
+
+          <Route path='/search/:searchTerm' >
+            <SearchPage />
+            </Route>
+
         </Switch>
       </div>
 
