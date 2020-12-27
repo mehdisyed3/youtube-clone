@@ -7,7 +7,7 @@ import {Switch, Route} from 'react-router-dom'
 import SearchPage from './SearchPage';
 
 
-// 2.22
+// 2.46
 function App() {
   return (
     <div className="app">
