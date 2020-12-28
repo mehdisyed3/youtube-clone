@@ -12,13 +12,15 @@ function SearchPage() {
       </div>
       <hr/>
       <ChannelRow
-      image='https://upload.wikimedia.org/wikipedia/commons/e/e1/Logo_of_YouTube_%282015-2017%29.svg'
+      image='https://avatars1.githubusercontent.com/u/21147250?s=400&
+      u=2e46b2ce19e4bcb38b64392b265d960f77cbc43a&v=4'
       channel="Ciyad Mehdee"
       verified
       subs="110K"
       noOfVideos={786}
-      description="Life of a developer, looking for a employment" 
+      description="Life of a developer who is looking for a employment" 
       />
+      <hr />
     </div>
   )
 }
