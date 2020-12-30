@@ -5,6 +5,7 @@ import RecommendedVideos from './RecommendedVideos';
 import Sidebar from './Sidebar';
 import { Switch, Route } from 'react-router-dom'
 import SearchPage from './SearchPage';
+import VideoStream from './VideoStream';
 
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
 
           <Route path='/search/:searchTerm' >
             <SearchPage />
+          </Route>
+          <Route path='/videostream' >
+            <VideoStream />
           </Route>
 
         </Switch>
