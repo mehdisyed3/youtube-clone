@@ -10,12 +10,15 @@ import OndemandVideoIcon from '@material-ui/icons/OndemandVideo'
 import WatchLarerIcon from '@material-ui/icons/WatchLater'
 import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined'
 import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined'
+import { Link } from 'react-router-dom'
 
 
 function Sidebar() {
   return (
     <div className='sidebar'>
+      <Link to='/'>
       <SidebarRow selected Icon={HomeIcon} title='Home' />
+      </Link>
       <SidebarRow Icon={WhatshotIcon} title='Trending' />
       <SidebarRow Icon={SubscriptionIcon} title='Subscription' />
       <hr/>

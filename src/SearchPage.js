@@ -1,10 +1,48 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import './SearchPage.css'
 import TunedOutlinedIcon from '@material-ui/icons/TuneOutlined'
 import ChannelRow from './ChannelRow'
 import VideoRow from './VideoRow'
+import { useParams } from "react-router"
+import * as timeago from 'timeago.js'
+
+// `https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyCqMyROln9xn38eQ7eVpnhrMXc6uhgPbos&type=video&q=${search}`
 
 function SearchPage() {
+  const [res, setRes]=useState([])
+  const [searchPhrase,setSearchPhrase] = useState('')
+  let searchTerm = useParams()
+  
+
+
+  useEffect(() => {
+
+    setSearchPhrase(searchTerm)
+
+    const fetchSearch = async function () {
+
+      await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyCqMyROln9xn38eQ7eVpnhrMXc6uhgPbos&type=video&q=${searchPhrase}`)
+        .then(response => response.json())
+        .then(data => setRes(data.items))
+    }
+    fetchSearch()
+  }, [searchTerm])
+   console.log(">>>>",searchTerm)
+
+
+   const videoSearched = res.map(item => (
+    <VideoRow
+    key={item.id.videoId}
+    views ={Math.round(Math.random() * 100) + 'K'}
+    subs = {Math.round(Math.random() * 100) + 'K'}
+    description = {item.snippet.description}
+    channel={item.snippet.channelTitle}
+    timestamp= {timeago.format(item.snippet.publishedAt)}
+    title = {item.snippet.title}
+    image={item?.snippet?.thumbnails.high.url}
+    videoId={item.id.videoId}
+  />
+   ))
   return (
     <div className='searchPage'>
       <div className='searchPage__filter'>
@@ -22,7 +60,7 @@ function SearchPage() {
         description="Life of a developer who is looking for a employment"
       />
       <hr />
-
+      {videoSearched}
       <VideoRow
         views ='999'
         subs = '110K'
