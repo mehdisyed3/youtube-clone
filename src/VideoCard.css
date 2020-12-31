@@ -17,6 +17,8 @@
 
 .videoCard__text{
   margin-left: 15px;
+  color: black;
+
 }
 
 .videoCard__text > h4{

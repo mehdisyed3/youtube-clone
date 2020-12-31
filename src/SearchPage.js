@@ -6,13 +6,12 @@ import VideoRow from './VideoRow'
 import { useParams } from "react-router"
 import * as timeago from 'timeago.js'
 
-// `https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyCqMyROln9xn38eQ7eVpnhrMXc6uhgPbos&type=video&q=${search}`
 
 function SearchPage() {
   const [res, setRes]=useState([])
   const [searchPhrase,setSearchPhrase] = useState('')
-  let searchTerm = useParams()
-  
+  let {searchTerm} = useParams()
+  console.log("AAA",searchTerm)
 
 
   useEffect(() => {

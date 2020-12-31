@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import './RecommendedVideos.css'
 import VideoCard from './VideoCard'
 import * as timeago from 'timeago.js'
+import {Link} from 'react-router-dom'
 
 
 function RecommendedVideos() {
@@ -22,10 +23,9 @@ function RecommendedVideos() {
 
 
   const display = videos.map(item => (
-
-
+    <Link to={`/videostream/${item.snippet.resourceId.videoId}`} >
     <VideoCard
-      key={item.id}
+      key={item.snippet.resourceId.videoId}
       videoId={item.snippet.resourceId.videoId}
       channel={item.snippet.channelTitle}
       title={item.snippet.title}
@@ -33,8 +33,9 @@ function RecommendedVideos() {
       channelImage='https://yt3.ggpht.com/ytc/AAUvwniLl7OesYjCTfZ-9psJroLEQmDFH0oXOIP81Q_ZeA=s88-c-k-c0x00ffffff-no-rj'
       timestamp={timeago.format(item.snippet.publishedAt).replace(".", "")}
       image={item?.snippet?.thumbnails.high.url}
-
     />
+    </Link>
+
 
 
   ))
