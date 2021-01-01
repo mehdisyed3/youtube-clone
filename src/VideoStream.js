@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useParams } from "react-router"
+import './VideoStream.css'
 
 function VideoStream() {
   const [str,setstr] = useState('')
@@ -7,9 +8,9 @@ function VideoStream() {
    console.log("@@@@",id)
 
   return (
-    <div>
+    <div className='videostream'>
       <h1>Widi</h1>
-      <iframe className="videoCard__thumbnail" src={`https://www.youtube.com/embed/${id}`} frameBorder="0" allowFullScreen></iframe> 
+      <iframe height='90%' width='70%' className="videostream__frame" src={`https://www.youtube.com/embed/${id}?autoplay=1`} frameBorder="0" allowFullScreen></iframe> 
     </div>
   )
 }
