@@ -4,6 +4,7 @@
 
 }
 
+
 .videoCard__thumbnail{
   height:140px;
   width: 250px;
@@ -13,6 +14,7 @@
   align-items: center;
   margin-top: 10px;
   padding-right: 30px;
+  text-decoration: none !important;
 }
 
 .videoCard__text{
@@ -24,6 +26,7 @@
 .videoCard__text > h4{
   font-size: 14px;
   margin-bottom: 5px;
+
 }
 
 .videoCard__text > p{

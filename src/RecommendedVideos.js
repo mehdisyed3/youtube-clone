@@ -23,7 +23,7 @@ function RecommendedVideos() {
 
 
   const display = videos.map(item => (
-    <Link to={`/videostream/${item.snippet.resourceId.videoId}`} >
+    <Link style={{ textDecoration: 'none' }}  to={`/videostream/${item.snippet.resourceId.videoId},${item.snippet.title}`} >
     <VideoCard
       key={item.snippet.resourceId.videoId}
       videoId={item.snippet.resourceId.videoId}
@@ -35,11 +35,7 @@ function RecommendedVideos() {
       image={item?.snippet?.thumbnails.high.url}
     />
     </Link>
-
-
-
   ))
-
   // console.log("THumbnal>>>>", videos[0]?.snippet.thumbnails.high.url)
 
   return (

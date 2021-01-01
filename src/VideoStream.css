@@ -2,5 +2,11 @@
   flex :0.8;
   background-color: #f9f9f9;
   padding: 20px 20px;
+  margin-left: 5px;
       
+}
+
+.videostream__title{
+  padding: 10px;
+  padding-left: 0;
 }
