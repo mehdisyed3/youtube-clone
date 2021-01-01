@@ -3,9 +3,8 @@ import { useParams } from "react-router"
 import './VideoStream.css'
 
 function VideoStream() {
-  const [str,setstr] = useState('')
    const { id } = useParams()
-   console.log("@@@@",id)
+  //  console.log("@@@@",id)
 
   return (
     <div className='videostream'>
