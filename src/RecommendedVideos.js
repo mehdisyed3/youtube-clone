@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react'
 import './RecommendedVideos.css'
 import VideoCard from './VideoCard'
 import * as timeago from 'timeago.js'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
-function RecommendedVideos() {
+function RecommendedVideos({ heading }) {
   const [videos, setVideos] = useState([])
 
   useEffect(() => {
@@ -23,24 +23,23 @@ function RecommendedVideos() {
 
 
   const display = videos.map(item => (
-    <Link style={{ textDecoration: 'none' }}  to={`/videostream/${item.snippet.resourceId.videoId},${item.snippet.title}`} >
-    <VideoCard
-      key={item.snippet.resourceId.videoId}
-      videoId={item.snippet.resourceId.videoId}
-      channel={item.snippet.channelTitle}
-      title={item.snippet.title}
-      views={Math.round(Math.random() * 100) + 'K'}
-      channelImage='https://yt3.ggpht.com/ytc/AAUvwniLl7OesYjCTfZ-9psJroLEQmDFH0oXOIP81Q_ZeA=s88-c-k-c0x00ffffff-no-rj'
-      timestamp={timeago.format(item.snippet.publishedAt).replace(".", "")}
-      image={item?.snippet?.thumbnails.high.url}
-    />
+    <Link style={{ textDecoration: 'none' }} key={item.snippet.resourceId.videoId} to={`/videostream/${item.snippet.resourceId.videoId},${item.snippet.title}`} >
+      <VideoCard
+        videoId={item.snippet.resourceId.videoId}
+        channel={item.snippet.channelTitle}
+        title={item.snippet.title}
+        views={Math.round(Math.random() * 100) + 'K'}
+        channelImage='https://yt3.ggpht.com/ytc/AAUvwniLl7OesYjCTfZ-9psJroLEQmDFH0oXOIP81Q_ZeA=s88-c-k-c0x00ffffff-no-rj'
+        timestamp={timeago.format(item.snippet.publishedAt).replace(".", "")}
+        image={item?.snippet?.thumbnails.high.url}
+      />
     </Link>
   ))
   // console.log("THumbnal>>>>", videos[0]?.snippet.thumbnails.high.url)
 
   return (
     <div className='recommendedVideos'>
-      <h2>Recommended</h2>
+      <h2>{heading}</h2>
       <div className='recommendedVideos__videos'>
 
         {display}

@@ -13,6 +13,7 @@
   height: 25px;
   margin-left: 20px;
   object-fit: contain;
+  background-color: white;
  
 }
 .header__input{

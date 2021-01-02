@@ -14,22 +14,21 @@ import { Link } from 'react-router-dom'
 
 
 function Sidebar() {
+
   return (
     <div className='sidebar'>
       <Link to='/'>
-      <SidebarRow selected Icon={HomeIcon} title='Home' />
+        <SidebarRow selected Icon={HomeIcon} title='Home' />
       </Link>
       <SidebarRow Icon={WhatshotIcon} title='Trending' />
       <SidebarRow Icon={SubscriptionIcon} title='Subscription' />
-      <hr/>
+      <hr />
       <SidebarRow Icon={VideoLibraryIcon} title='Library' />
       <SidebarRow Icon={HistoryIcon} title='History' />
       <SidebarRow Icon={OndemandVideoIcon} title='Your videos' />
       <SidebarRow Icon={WatchLarerIcon} title='Watch Later' />
       <SidebarRow Icon={ThumbUpAltOutlinedIcon} title='Liked videos' />
       <SidebarRow Icon={ExpandMoreOutlinedIcon} title='Show more' />
-
-
 
     </div>
   )

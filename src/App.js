@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './App.css';
 import Header from './Header';
 import RecommendedVideos from './RecommendedVideos';
@@ -19,7 +19,7 @@ function App() {
         <Sidebar />
         <Switch>
           <Route exact path='/'>
-            <RecommendedVideos />
+            <RecommendedVideos heading="Recommended" />
           </Route>
 
           <Route path='/search/:searchTerm' >

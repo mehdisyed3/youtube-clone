@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import './SearchPage.css'
 import TunedOutlinedIcon from '@material-ui/icons/TuneOutlined'
 import ChannelRow from './ChannelRow'
@@ -8,11 +8,9 @@ import * as timeago from 'timeago.js'
 
 
 function SearchPage() {
-  const [res, setRes]=useState([])
-  const [searchPhrase,setSearchPhrase] = useState('')
-  let {searchTerm} = useParams()
-  console.log("AAA",searchTerm)
-
+  const [res, setRes] = useState([])
+  const [searchPhrase, setSearchPhrase] = useState('')
+  let { searchTerm } = useParams()
 
   useEffect(() => {
 
@@ -20,28 +18,28 @@ function SearchPage() {
 
     const fetchSearch = async function () {
 
-      await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyCqMyROln9xn38eQ7eVpnhrMXc6uhgPbos&type=video&q=${searchPhrase}`)
+      await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&key=AIzaSyCqMyROln9xn38eQ7eVpnhrMXc6uhgPbos&type=video&q=${searchPhrase}`)
         .then(response => response.json())
         .then(data => setRes(data.items))
     }
     fetchSearch()
-  }, [searchTerm])
-   console.log(">>>>",searchTerm)
+  }, [searchTerm, searchPhrase])
+  console.log(">>>>", searchTerm)
 
 
-   const videoSearched = res.map(item => (
+  const videoSearched = res.map(item => (
     <VideoRow
-    key={item.id.videoId}
-    views ={Math.round(Math.random() * 100) + 'K'}
-    subs = {Math.round(Math.random() * 100) + 'K'}
-    description = {item.snippet.description}
-    channel={item.snippet.channelTitle}
-    timestamp= {timeago.format(item.snippet.publishedAt)}
-    title = {item.snippet.title}
-    image={item?.snippet?.thumbnails.high.url}
-    videoId={item.id.videoId}
-  />
-   ))
+      key={item.id.videoId}
+      views={Math.round(Math.random() * 100) + 'K'}
+      subs={Math.round(Math.random() * 100) + 'K'}
+      description={item.snippet.description}
+      channel={item.snippet.channelTitle}
+      timestamp={timeago.format(item.snippet.publishedAt)}
+      title={item.snippet.title}
+      image={item?.snippet?.thumbnails.high.url}
+      videoId={item.id.videoId}
+    />
+  ))
   return (
     <div className='searchPage'>
       <div className='searchPage__filter'>
@@ -60,15 +58,7 @@ function SearchPage() {
       />
       <hr />
       {videoSearched}
-      <VideoRow
-        views ='999'
-        subs = '110K'
-        description = "Day 1 of applying jobs on Linkedin"
-        channel="Ciyad Mehdee"
-        timestamp= '2 weeks ago'
-        title = "Let do this!"
-        image='https://www.lifewire.com/thmb/m3dthzZpWu--jE6K1wclLehprC4=/775x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/what-is-linkedin-3486382-0c224dfb74884776bee7b53d390348bc.png'
-      />
+     
     </div>
   )
 }
