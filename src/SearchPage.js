@@ -5,6 +5,7 @@ import ChannelRow from './ChannelRow'
 import VideoRow from './VideoRow'
 import { useParams } from "react-router"
 import * as timeago from 'timeago.js'
+import {Link} from 'react-router-dom'
 
 
 function SearchPage() {
@@ -28,6 +29,7 @@ function SearchPage() {
 
 
   const videoSearched = res.map(item => (
+    <Link style={{ textDecoration: 'none' }}  key={item.id.videoId} to={`/videostream/${item.id.videoId},${item.snippet.title}`} >
     <VideoRow
       key={item.id.videoId}
       views={Math.round(Math.random() * 100) + 'K'}
@@ -39,6 +41,7 @@ function SearchPage() {
       image={item?.snippet?.thumbnails.high.url}
       videoId={item.id.videoId}
     />
+    </Link>
   ))
   return (
     <div className='searchPage'>
@@ -57,8 +60,9 @@ function SearchPage() {
         description="Life of a developer who is looking for a employment"
       />
       <hr />
+      <div className='searchPage__result'>
       {videoSearched}
-     
+      </div>
     </div>
   )
 }
