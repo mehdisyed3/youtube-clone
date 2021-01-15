@@ -4,7 +4,7 @@ import Avatar from '@material-ui/core/Avatar'
 
 
 
-function VideoCard({ image, title, channel, timestamp, views, channelImageÏ}) {
+function VideoCard({ image, title, channel, timestamp, views, channelImage}) {
   return (
     <div className='videoCard' >
       <img className="videoCard__thumbnail" src={image} alt='' />
