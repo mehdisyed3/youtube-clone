@@ -5,7 +5,7 @@ import ChannelRow from './ChannelRow'
 import VideoRow from './VideoRow'
 import { useParams } from "react-router"
 import * as timeago from 'timeago.js'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 function SearchPage() {
@@ -29,18 +29,18 @@ function SearchPage() {
 
 
   const videoSearched = res.map(item => (
-    <Link style={{ textDecoration: 'none' }}  key={item.id.videoId} to={`/videostream/${item.id.videoId},${item.snippet.title}`} >
-    <VideoRow
-      key={item.id.videoId}
-      views={Math.round(Math.random() * 100) + 'K'}
-      subs={Math.round(Math.random() * 100) + 'K'}
-      description={item.snippet.description}
-      channel={item.snippet.channelTitle}
-      timestamp={timeago.format(item.snippet.publishedAt)}
-      title={item.snippet.title}
-      image={item?.snippet?.thumbnails.high.url}
-      videoId={item.id.videoId}
-    />
+    <Link style={{ textDecoration: 'none' }} key={item.id.videoId} to={`/videostream/${item.id.videoId},${item.snippet.title}`} >
+      <VideoRow
+        key={item.id.videoId}
+        views={Math.round(Math.random() * 100) + 'K'}
+        subs={Math.round(Math.random() * 100) + 'K'}
+        description={item.snippet.description}
+        channel={item.snippet.channelTitle}
+        timestamp={timeago.format(item.snippet.publishedAt)}
+        title={item.snippet.title}
+        image={item?.snippet?.thumbnails.high.url}
+        videoId={item.id.videoId}
+      />
     </Link>
   ))
   return (
@@ -61,7 +61,7 @@ function SearchPage() {
       />
       <hr />
       <div className='searchPage__result'>
-      {videoSearched}
+        {videoSearched}
       </div>
     </div>
   )

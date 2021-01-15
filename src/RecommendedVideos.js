@@ -18,7 +18,8 @@ function RecommendedVideos({ heading }) {
         .then(data => setVideos(data.items))
     }
     pullVideos()
-  }, [])
+  }, []
+  )
 
 
 
